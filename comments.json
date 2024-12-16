@@ -10,10 +10,7 @@
     },
     "created_at": "2024-12-16T09:00:00Z",
     "updated_at": "2024-12-16T10:00:00Z",
-    "attributes": {
-      "likes": 3,
-      "replies": 1
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc101"
   },
@@ -28,10 +25,7 @@
     },
     "created_at": "2024-12-16T09:30:00Z",
     "updated_at": "2024-12-16T09:45:00Z",
-    "attributes": {
-      "likes": 5,
-      "replies": 0
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc101"
   },
@@ -46,10 +40,7 @@
     },
     "created_at": "2024-12-16T10:00:00Z",
     "updated_at": "2024-12-16T10:30:00Z",
-    "attributes": {
-      "likes": 1,
-      "replies": 2
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc102"
   },
@@ -64,10 +55,7 @@
     },
     "created_at": "2024-12-16T10:15:00Z",
     "updated_at": "2024-12-16T10:20:00Z",
-    "attributes": {
-      "likes": 8,
-      "replies": 3
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc102"
   },
@@ -82,10 +70,7 @@
     },
     "created_at": "2024-12-16T11:00:00Z",
     "updated_at": "2024-12-16T11:30:00Z",
-    "attributes": {
-      "likes": 2,
-      "replies": 0
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc103"
   },
@@ -100,10 +85,7 @@
     },
     "created_at": "2024-12-16T12:00:00Z",
     "updated_at": "2024-12-16T12:10:00Z",
-    "attributes": {
-      "likes": 7,
-      "replies": 1
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc104"
   },
@@ -118,10 +100,7 @@
     },
     "created_at": "2024-12-16T12:15:00Z",
     "updated_at": "2024-12-16T12:20:00Z",
-    "attributes": {
-      "likes": 0,
-      "replies": 4
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc104"
   },
@@ -136,10 +115,7 @@
     },
     "created_at": "2024-12-16T13:00:00Z",
     "updated_at": "2024-12-16T13:15:00Z",
-    "attributes": {
-      "likes": 6,
-      "replies": 0
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc105"
   },
@@ -154,10 +130,7 @@
     },
     "created_at": "2024-12-16T14:00:00Z",
     "updated_at": "2024-12-16T14:20:00Z",
-    "attributes": {
-      "likes": 2,
-      "replies": 1
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc105"
   },
@@ -172,16 +145,13 @@
     },
     "created_at": "2024-12-16T15:00:00Z",
     "updated_at": "2024-12-16T15:30:00Z",
-    "attributes": {
-      "likes": 1,
-      "replies": 0
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc106"
   },
   {
     "id": "11",
-    "thread_id": "106",
+    "thread_id": "107",
     "content": "<p>Here’s a suggestion for improvement.</p>",
     "user": {
       "id": "u11",
@@ -190,10 +160,7 @@
     },
     "created_at": "2024-12-16T16:00:00Z",
     "updated_at": "2024-12-16T16:15:00Z",
-    "attributes": {
-      "likes": 4,
-      "replies": 2
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc106"
   },
@@ -208,16 +175,13 @@
     },
     "created_at": "2024-12-16T17:00:00Z",
     "updated_at": "2024-12-16T17:10:00Z",
-    "attributes": {
-      "likes": 5,
-      "replies": 0
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc107"
   },
   {
     "id": "13",
-    "thread_id": "107",
+    "thread_id": "108",
     "content": "<p>This is a controversial topic.</p>",
     "user": {
       "id": "u13",
@@ -226,16 +190,13 @@
     },
     "created_at": "2024-12-16T18:00:00Z",
     "updated_at": "2024-12-16T18:30:00Z",
-    "attributes": {
-      "likes": 2,
-      "replies": 3
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc107"
   },
   {
     "id": "14",
-    "thread_id": "108",
+    "thread_id": "109",
     "content": "<p>Could we use a different approach?</p>",
     "user": {
       "id": "u14",
@@ -244,11 +205,248 @@
     },
     "created_at": "2024-12-16T19:00:00Z",
     "updated_at": "2024-12-16T19:30:00Z",
-    "attributes": {
-      "likes": 3,
-      "replies": 1
-    },
+    "attributes": {},
     "type": 1,
     "document_id": "doc108"
+  },
+  {
+    "id": "15",
+    "thread_id": "110",
+    "content": "<p>Interesting observation!</p>",
+    "user": {
+      "id": "u15",
+      "name": "Oliver Carter",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T20:00:00Z",
+    "updated_at": "2024-12-16T20:30:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc109"
+  },
+  {
+    "id": "16",
+    "thread_id": "101",
+    "content": "<p>Thanks for sharing this point.</p>",
+    "user": {
+      "id": "u16",
+      "name": "Sophia Walker",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T21:00:00Z",
+    "updated_at": "2024-12-16T21:30:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc101"
+  },
+  {
+    "id": "17",
+    "thread_id": "110",
+    "content": "<p>That's a great insight!</p>",
+    "user": {
+      "id": "u17",
+      "name": "Ethan Taylor",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T22:00:00Z",
+    "updated_at": "2024-12-16T22:10:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc109"
+  },
+  {
+    "id": "18",
+    "thread_id": "102",
+    "content": "<p>I found this very helpful!</p>",
+    "user": {
+      "id": "u18",
+      "name": "Amelia Brown",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T23:00:00Z",
+    "updated_at": "2024-12-16T23:30:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc102"
+  },
+  {
+    "id": "19",
+    "thread_id": "108",
+    "content": "<p>Let's keep improving this.</p>",
+    "user": {
+      "id": "u19",
+      "name": "Lucas Anderson",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T23:30:00Z",
+    "updated_at": "2024-12-16T23:45:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc107"
+  },
+  {
+    "id": "20",
+    "thread_id": "103",
+    "content": "<p>Looking forward to more insights!</p>",
+    "user": {
+      "id": "u20",
+      "name": "Ella Martin",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T00:00:00Z",
+    "updated_at": "2024-12-17T00:20:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc103"
+  },
+  {
+    "id": "21",
+    "thread_id": "110",
+    "content": "<p>This is an important point!</p>",
+    "user": {
+      "id": "u21",
+      "name": "Ava Harris",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T01:00:00Z",
+    "updated_at": "2024-12-17T01:15:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc109"
+  },
+  {
+    "id": "22",
+    "thread_id": "108",
+    "content": "<p>Should we consider an alternative solution?</p>",
+    "user": {
+      "id": "u22",
+      "name": "William Moore",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T02:00:00Z",
+    "updated_at": "2024-12-17T02:10:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc107"
+  },
+  {
+    "id": "23",
+    "thread_id": "107",
+    "content": "<p>I've been thinking the same!</p>",
+    "user": {
+      "id": "u23",
+      "name": "Mia Thomas",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T03:00:00Z",
+    "updated_at": "2024-12-17T03:30:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc107"
+  },
+  {
+    "id": "24",
+    "thread_id": "103",
+    "content": "<p>This is quite interesting.</p>",
+    "user": {
+      "id": "u24",
+      "name": "Henry Garcia",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T04:00:00Z",
+    "updated_at": "2024-12-17T04:15:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc103"
+  },
+  {
+    "id": "25",
+    "thread_id": "110",
+    "content": "<p>Can we add more details here?</p>",
+    "user": {
+      "id": "u25",
+      "name": "Sophia Johnson",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T05:00:00Z",
+    "updated_at": "2024-12-17T05:20:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc109"
+  },
+  {
+    "id": "26",
+    "thread_id": "105",
+    "content": "<p>I agree with the main point.</p>",
+    "user": {
+      "id": "u26",
+      "name": "Emily Wilson",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T06:00:00Z",
+    "updated_at": "2024-12-17T06:15:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc105"
+  },
+  {
+    "id": "27",
+    "thread_id": "108",
+    "content": "<p>More examples would be helpful.</p>",
+    "user": {
+      "id": "u27",
+      "name": "James Lewis",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T07:00:00Z",
+    "updated_at": "2024-12-17T07:30:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc107"
+  },
+  {
+    "id": "28",
+    "thread_id": "102",
+    "content": "<p>I'll look into this further.</p>",
+    "user": {
+      "id": "u28",
+      "name": "Charlotte Robinson",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T08:00:00Z",
+    "updated_at": "2024-12-17T08:30:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc102"
+  },
+  {
+    "id": "29",
+    "thread_id": "110",
+    "content": "<p>This should be highlighted more.</p>",
+    "user": {
+      "id": "u29",
+      "name": "Michael Lee",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T09:00:00Z",
+    "updated_at": "2024-12-17T09:20:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc109"
+  },
+  {
+    "id": "30",
+    "thread_id": "103",
+    "content": "<p>This is a great addition!</p>",
+    "user": {
+      "id": "u30",
+      "name": "Grace Martinez",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-17T10:00:00Z",
+    "updated_at": "2024-12-17T10:15:00Z",
+    "attributes": {},
+    "type": 1,
+    "document_id": "doc103"
   }
 ]

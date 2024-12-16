@@ -140,7 +140,7 @@ body{
     }
 
     #toc-container {
-        display: none !important; /* Ensure the TOC is hidden on smaller screens */
+        display: hidden !important; /* Ensure the TOC is hidden on smaller screens */
       }
   }
 
@@ -182,7 +182,7 @@ body{
   
   
 
-/* Abhishek */
+/* ----------------------------------Comments------------------------ */
 /* Updated comment-container for thread separation */
 .comment-container {
   margin: 20px auto;
@@ -195,6 +195,7 @@ body{
   margin-bottom: 20px; /* Adds space between thread cards */
   padding-bottom: 10px; /* Reduced bottom padding */
   overflow-y: scroll;
+  border: #646c6d solid;
 }
 
 

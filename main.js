@@ -39,33 +39,40 @@ document.getElementById("collapse-toc-btn").addEventListener("click", function (
   });
   
   
-  
   document.addEventListener("DOMContentLoaded", function () {
-    // Get all the links in the Table of Contents
-    const tocLinks = document.querySelectorAll('.nav-link');
+    const toc = document.querySelector("#toc-container"); // Table of contents container
+    const navLinks = toc.querySelectorAll(".nav-link");  // All TOC links
     
-    // Iterate through each link
-    tocLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        // Prevent the default anchor behavior
-        e.preventDefault();
+    // Monitor changes to active classes on scroll
+    toc.addEventListener("activate.bs.scrollspy", function () {
+      navLinks.forEach((link) => {
+        const parentLi = link.parentElement; // Get the parent <li> of the link
   
-        // Close all collapses
-        document.querySelectorAll('.collapse').forEach(collapse => {
-          collapse.classList.remove('show');
-        });
+        // Check if the current link has the active class (meaning it's visible in the viewport)
+        if (link.classList.contains("active")) {
+          // Expand any nested nav (if the link is active)
+          const nestedNav = parentLi.querySelector(".nav");
+          if (nestedNav) {
+            nestedNav.classList.add("show"); // Expand the active nested TOC
+          }
   
-        // Get the corresponding collapse target and toggle it
-        const targetId = link.getAttribute('href').substring(1); // Extracts the ID (e.g., item-1, item-1-1)
-        const targetCollapse = document.querySelector(`#${targetId}-collapse`);
-  
-        if (targetCollapse) {
-          // Add the 'show' class to the corresponding collapse section
-          targetCollapse.classList.add('show');
+          // Expand all ancestor navs to ensure the parent items are also open
+          let parent = parentLi.closest(".nav");
+          while (parent && parent !== toc) {
+            parent.classList.add("show"); // Expand any ancestor .nav
+            parent = parent.closest(".nav");
+          }
+        } else {
+          // Collapse non-active nested navs
+          const nestedNav = parentLi.querySelector(".nav");
+          if (nestedNav && !nestedNav.querySelector(".nav-link.active")) {
+            nestedNav.classList.remove("show"); // Collapse if no active child
+          }
         }
       });
     });
   });
+  
   
   
   
