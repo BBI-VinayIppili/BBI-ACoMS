@@ -1,170 +1,254 @@
 [
-    {
-      "id": 1,
-      "thread_id": 1,
-      "user_name": "John Doe",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is the first comment in the thread.",
-      "date_time": "2024-12-13 10:00 AM",
-      "replies": [
-        {
-          "id": 2,
-          "user_name": "Jane Doe",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "This is a reply to the first comment.",
-          "date_time": "2024-12-13 10:30 AM"
-        },
-        {
-          "id": 3,
-          "user_name": "Alice Smith",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Another reply to the first comment.",
-          "date_time": "2024-12-13 10:45 AM"
-        },
-        {
-          "id": 4,
-          "user_name": "Michael Johnson",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Here's yet another reply to the first comment.",
-          "date_time": "2024-12-13 11:00 AM"
-        }
-      ]
+  {
+    "id": "1",
+    "thread_id": "101",
+    "content": "<p>This is the first comment</p>",
+    "user": {
+      "id": "u1",
+      "name": "Alice Johnson",
+      "profile_picture": "./user.png"
     },
-    {
-      "id": 5,
-      "thread_id": 2,
-      "user_name": "Bob Brown",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is the first comment in a different thread.",
-      "date_time": "2024-12-13 11:00 AM",
-      "replies": []
+    "created_at": "2024-12-16T09:00:00Z",
+    "updated_at": "2024-12-16T10:00:00Z",
+    "attributes": {
+      "likes": 3,
+      "replies": 1
     },
-    {
-      "id": 6,
-      "thread_id": 3,
-      "user_name": "Charlie Davis",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is another comment in a separate thread.",
-      "date_time": "2024-12-13 12:00 PM",
-      "replies": [
-        {
-          "id": 7,
-          "user_name": "Dave Wilson",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Reply to the third comment.",
-          "date_time": "2024-12-13 12:30 PM"
-        }
-      ]
+    "type": 1,
+    "document_id": "doc101"
+  },
+  {
+    "id": "2",
+    "thread_id": "101",
+    "content": "<p>I totally agree with this!</p>",
+    "user": {
+      "id": "u2",
+      "name": "Bob Smith",
+      "profile_picture": "./user.png"
     },
-    {
-      "id": 8,
-      "thread_id": 1,
-      "user_name": "Eve White",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "A third comment in the first thread.",
-      "date_time": "2024-12-13 01:00 PM",
-      "replies": []
+    "created_at": "2024-12-16T09:30:00Z",
+    "updated_at": "2024-12-16T09:45:00Z",
+    "attributes": {
+      "likes": 5,
+      "replies": 0
     },
-    {
-      "id": 9,
-      "thread_id": 4,
-      "user_name": "Zachary Brown",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is a comment on thread 4.",
-      "date_time": "2024-12-13 01:30 PM",
-      "replies": [
-        {
-          "id": 10,
-          "user_name": "Olivia Green",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Reply to thread 4's comment.",
-          "date_time": "2024-12-13 02:00 PM"
-        },
-        {
-          "id": 11,
-          "user_name": "Sophia Taylor",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Another reply to thread 4.",
-          "date_time": "2024-12-13 02:30 PM"
-        }
-      ]
+    "type": 1,
+    "document_id": "doc101"
+  },
+  {
+    "id": "3",
+    "thread_id": "102",
+    "content": "<p>Can someone explain this further?</p>",
+    "user": {
+      "id": "u3",
+      "name": "Carol Lee",
+      "profile_picture": "./user.png"
     },
-    {
-      "id": 12,
-      "thread_id": 5,
-      "user_name": "Liam Harris",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is a comment on thread 5.",
-      "date_time": "2024-12-13 03:00 PM",
-      "replies": [
-        {
-          "id": 13,
-          "user_name": "Emma Clark",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Reply to thread 5's comment.",
-          "date_time": "2024-12-13 03:30 PM"
-        }
-      ]
+    "created_at": "2024-12-16T10:00:00Z",
+    "updated_at": "2024-12-16T10:30:00Z",
+    "attributes": {
+      "likes": 1,
+      "replies": 2
     },
-    {
-      "id": 14,
-      "thread_id": 6,
-      "user_name": "James Lewis",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is a comment in thread 6.",
-      "date_time": "2024-12-13 04:00 PM",
-      "replies": [
-        {
-          "id": 15,
-          "user_name": "Amelia Walker",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Reply to thread 6's comment.",
-          "date_time": "2024-12-13 04:30 PM"
-        }
-      ]
+    "type": 1,
+    "document_id": "doc102"
+  },
+  {
+    "id": "4",
+    "thread_id": "102",
+    "content": "<p>Sure, I can explain this!</p>",
+    "user": {
+      "id": "u4",
+      "name": "David Brown",
+      "profile_picture": "./user.png"
     },
-    {
-      "id": 16,
-      "thread_id": 7,
-      "user_name": "Lucas Scott",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is a comment in thread 7.",
-      "date_time": "2024-12-13 05:00 PM",
-      "replies": [
-        {
-          "id": 17,
-          "user_name": "Mia King",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Reply to thread 7's comment.",
-          "date_time": "2024-12-13 05:30 PM"
-        }
-      ]
+    "created_at": "2024-12-16T10:15:00Z",
+    "updated_at": "2024-12-16T10:20:00Z",
+    "attributes": {
+      "likes": 8,
+      "replies": 3
     },
-    {
-      "id": 18,
-      "thread_id": 8,
-      "user_name": "Noah Young",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is a comment in thread 8.",
-      "date_time": "2024-12-13 06:00 PM",
-      "replies": []
+    "type": 1,
+    "document_id": "doc102"
+  },
+  {
+    "id": "5",
+    "thread_id": "103",
+    "content": "<p>Does this apply to all cases?</p>",
+    "user": {
+      "id": "u5",
+      "name": "Emma Davis",
+      "profile_picture": "./user.png"
     },
-    {
-      "id": 19,
-      "thread_id": 9,
-      "user_name": "Mason Martinez",
-      "profile_pic": "https://via.placeholder.com/40",
-      "comment": "This is a comment in thread 9.",
-      "date_time": "2024-12-13 06:30 PM",
-      "replies": [
-        {
-          "id": 20,
-          "user_name": "Isabella Moore",
-          "profile_pic": "https://via.placeholder.com/40",
-          "comment": "Reply to thread 9's comment.",
-          "date_time": "2024-12-13 07:00 PM"
-        }
-      ]
-    }
-  ]
-  
+    "created_at": "2024-12-16T11:00:00Z",
+    "updated_at": "2024-12-16T11:30:00Z",
+    "attributes": {
+      "likes": 2,
+      "replies": 0
+    },
+    "type": 1,
+    "document_id": "doc103"
+  },
+  {
+    "id": "6",
+    "thread_id": "104",
+    "content": "<p>Thanks for sharing this information.</p>",
+    "user": {
+      "id": "u6",
+      "name": "Fiona White",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T12:00:00Z",
+    "updated_at": "2024-12-16T12:10:00Z",
+    "attributes": {
+      "likes": 7,
+      "replies": 1
+    },
+    "type": 1,
+    "document_id": "doc104"
+  },
+  {
+    "id": "7",
+    "thread_id": "104",
+    "content": "<p>I have a question about this.</p>",
+    "user": {
+      "id": "u7",
+      "name": "George Wilson",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T12:15:00Z",
+    "updated_at": "2024-12-16T12:20:00Z",
+    "attributes": {
+      "likes": 0,
+      "replies": 4
+    },
+    "type": 1,
+    "document_id": "doc104"
+  },
+  {
+    "id": "8",
+    "thread_id": "105",
+    "content": "<p>This helped me a lot. Thanks!</p>",
+    "user": {
+      "id": "u8",
+      "name": "Hannah Clark",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T13:00:00Z",
+    "updated_at": "2024-12-16T13:15:00Z",
+    "attributes": {
+      "likes": 6,
+      "replies": 0
+    },
+    "type": 1,
+    "document_id": "doc105"
+  },
+  {
+    "id": "9",
+    "thread_id": "105",
+    "content": "<p>Let’s discuss this in detail.</p>",
+    "user": {
+      "id": "u9",
+      "name": "Isaac Martinez",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T14:00:00Z",
+    "updated_at": "2024-12-16T14:20:00Z",
+    "attributes": {
+      "likes": 2,
+      "replies": 1
+    },
+    "type": 1,
+    "document_id": "doc105"
+  },
+  {
+    "id": "10",
+    "thread_id": "106",
+    "content": "<p>What’s the source for this data?</p>",
+    "user": {
+      "id": "u10",
+      "name": "Jack King",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T15:00:00Z",
+    "updated_at": "2024-12-16T15:30:00Z",
+    "attributes": {
+      "likes": 1,
+      "replies": 0
+    },
+    "type": 1,
+    "document_id": "doc106"
+  },
+  {
+    "id": "11",
+    "thread_id": "106",
+    "content": "<p>Here’s a suggestion for improvement.</p>",
+    "user": {
+      "id": "u11",
+      "name": "Kelly Adams",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T16:00:00Z",
+    "updated_at": "2024-12-16T16:15:00Z",
+    "attributes": {
+      "likes": 4,
+      "replies": 2
+    },
+    "type": 1,
+    "document_id": "doc106"
+  },
+  {
+    "id": "12",
+    "thread_id": "107",
+    "content": "<p>Good point, I hadn’t considered that!</p>",
+    "user": {
+      "id": "u12",
+      "name": "Liam Scott",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T17:00:00Z",
+    "updated_at": "2024-12-16T17:10:00Z",
+    "attributes": {
+      "likes": 5,
+      "replies": 0
+    },
+    "type": 1,
+    "document_id": "doc107"
+  },
+  {
+    "id": "13",
+    "thread_id": "107",
+    "content": "<p>This is a controversial topic.</p>",
+    "user": {
+      "id": "u13",
+      "name": "Mason Wright",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T18:00:00Z",
+    "updated_at": "2024-12-16T18:30:00Z",
+    "attributes": {
+      "likes": 2,
+      "replies": 3
+    },
+    "type": 1,
+    "document_id": "doc107"
+  },
+  {
+    "id": "14",
+    "thread_id": "108",
+    "content": "<p>Could we use a different approach?</p>",
+    "user": {
+      "id": "u14",
+      "name": "Nina Evans",
+      "profile_picture": "./user.png"
+    },
+    "created_at": "2024-12-16T19:00:00Z",
+    "updated_at": "2024-12-16T19:30:00Z",
+    "attributes": {
+      "likes": 3,
+      "replies": 1
+    },
+    "type": 1,
+    "document_id": "doc108"
+  }
+]

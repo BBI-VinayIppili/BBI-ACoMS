@@ -10,6 +10,8 @@ document.getElementById("collapse-toc-btn").addEventListener("click", function (
     commentsContainer.classList.toggle("collapsed");
   });
 
+
+  // for arrow direction change
   document.addEventListener('DOMContentLoaded', function () {
     // Get references to both toggle icons
     const collapseTocBtn = document.getElementById('collapse-toc-btn');
@@ -38,43 +40,32 @@ document.getElementById("collapse-toc-btn").addEventListener("click", function (
   
   
   
-
-
-
   document.addEventListener("DOMContentLoaded", function () {
-    // Get all collapsible elements
-    const collapsibles = document.querySelectorAll("#navbar-example3 .collapse");
-    console.log()
+    // Get all the links in the Table of Contents
+    const tocLinks = document.querySelectorAll('.nav-link');
+    
+    // Iterate through each link
+    tocLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        // Prevent the default anchor behavior
+        e.preventDefault();
   
-    // Helper function to toggle the state of a specific collapsible without affecting others
-    function toggleCollapsible(activeElementId) {
-      collapsibles.forEach((collapse) => {
-        // Check if this collapse matches the active element
-        if (collapse.id === activeElementId) {
-          if (!collapse.classList.contains("show")) {
-            // Open the active collapsible if it's not already open
-            collapse.classList.add("show");
-          }
+        // Close all collapses
+        document.querySelectorAll('.collapse').forEach(collapse => {
+          collapse.classList.remove('show');
+        });
+  
+        // Get the corresponding collapse target and toggle it
+        const targetId = link.getAttribute('href').substring(1); // Extracts the ID (e.g., item-1, item-1-1)
+        const targetCollapse = document.querySelector(`#${targetId}-collapse`);
+  
+        if (targetCollapse) {
+          // Add the 'show' class to the corresponding collapse section
+          targetCollapse.classList.add('show');
         }
       });
-    }
-  
-    // Add event listener for Bootstrap's ScrollSpy activate event
-    document.getElementById("viewer-container").addEventListener("activate.bs.scrollspy", (e) => {
-      const activeLink = document.querySelector("#navbar-example3 .nav-link.active");
-  
-      if (activeLink) {
-        // Get the data-bs-target or href for the active link
-        const targetId = activeLink.getAttribute("href")?.replace("#", "");
-  
-        if (targetId) {
-          toggleCollapsible(`${targetId}-collapse`);
-        }
-      }
     });
   });
-  
-  
   
   
   
