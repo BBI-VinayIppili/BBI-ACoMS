@@ -1,3 +1,29 @@
+body{
+  height: 100%;
+}
+
+
+/* Navbar */
+.navbar {
+  margin-bottom: 0 !important; /* Remove bottom margin */
+}
+
+.container-fluid {
+  margin-top: 0 !important; /* Remove top margin */
+  padding-top: 0 !important; /* Remove any top padding */
+}
+
+/* Add consistent padding around text and icons */
+.navbar h5 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.navbar i {
+  cursor: pointer;
+}
+
+
 
 /* TOC Container Styling */
 #toc-container {
@@ -8,7 +34,7 @@
     border-right: 1px solid #ccc;
     background-color: #f8f9fa;
     transition: width 0.3s ease, opacity 0.3s ease; /* Transition for width and opacity */
-    width: 240px; /* Default width of TOC */
+    width: 320px; /* Default width of TOC */
     scrollbar-width: none; /* Hide scrollbar for Firefox */
     -ms-overflow-style: none;  /* Hide scrollbar for Internet Explorer */
     overflow: hidden; /* Hide the scrollbar */
@@ -110,18 +136,18 @@
 
 /*------------------------------------Comments cs-----------------------------------*/
 /* Comments Section Styling */
-#comments-container {
+/* #comments-container {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
     max-width: 900px;
    
-    height: 80vh; /* Set a specific height */
-    overflow-y: auto; /* Make it scrollable */
+    height: 80vh; 
+    overflow-y: auto; 
 }
 
-/* Scrollbar styling for the comments container */
+
 #comments-container::-webkit-scrollbar {
     width: 6px;
 }
@@ -129,7 +155,7 @@
 #comments-container::-webkit-scrollbar-thumb {
     background-color: #007bff;
     border-radius: 10px;
-}
+} */
 
 
 
@@ -184,7 +210,8 @@
   
   
   
-
+ 
+  
 
   
  
