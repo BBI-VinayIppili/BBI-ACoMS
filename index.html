@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 shadow-sm d-none d-lg-block">
+    <div class="container-fluid">
+      <!-- Flex container for alignment -->
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <!-- TOC Toggle Button -->
+        <div class="d-flex align-items-center">
+          <i id="collapse-toc-btn" class="fa-solid fa-angles-left fa-2x me-2"></i>
+          <h5 class="mb-0">Table of Contents</h5>
+        </div>
+
+        <!-- ACoMS Brand -->
+        <a class="navbar-brand text-center mx-auto" href="#">ACoMS</a>
+
+        <!-- Comments Toggle Button -->
+        <div class="d-flex align-items-center">
+          <h5 class="mb-0 me-2">Comments</h5>
+          <i id="collapse-comments-btn" class="fa-solid fa-angles-right fa-2x"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 shadow-sm d-lg-none">
+    <div class="container-fluid">
+      <!-- Flex container for alignment -->
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <!-- TOC Toggle Button -->
+        <i id="collapse-toc-btn" class="fa-solid fa-angles-left fa-2x me-2" data-bs-toggle="offcanvas"
+          data-bs-target="#toc-offcanvas"></i>
+
+        <!-- ACoMS Brand -->
+        <a class="navbar-brand mx-auto text-center" href="#">ACoMS</a>
+
+        <!-- Comments Toggle Button -->
+        <i id="collapse-comments-btn" class="fa-solid fa-angles-right fa-2x" data-bs-toggle="offcanvas"
+          data-bs-target="#comments-offcanvas"></i>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+  <div class="container-fluid d-flex h-100">
+    <!-- TOC Section -->
+    <div class="col-12 col-md-2 collapse show d-none d-lg-block" id="toc-container">
+      <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4">
+        <nav class="nav nav-pills flex-column">
+          <div class="nav-item">
+            <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#item-1-collapse"
+              role="button" aria-expanded="false" aria-controls="item-1-collapse">
+              <i class="me-2 fa fa-angle-right"></i>
+              <span>Item 1</span>
+            </a>
+            <div class="collapse" id="item-1-collapse">
+              <nav class="nav nav-pills flex-column">
+                <a class="nav-link ms-4 my-1" href="#item-1-1">Item 1-1</a>
+                <a class="nav-link ms-4 my-1" href="#item-1-2">Item 1-2</a>
+              </nav>
+            </div>
+          </div>
+          <a class="nav-link" href="#item-2">Item 2</a>
+          <div class="nav-item">
+            <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#item-3-collapse"
+              role="button" aria-expanded="false" aria-controls="item-3-collapse">
+              <i class="me-2 fa fa-angle-right"></i>
+              <span>Item 3</span>
+            </a>
+            <div class="collapse" id="item-3-collapse">
+              <nav class="nav nav-pills flex-column">
+                <a class="nav-link ms-4 my-1" href="#item-3-1">Item 3-1</a>
+                <a class="nav-link ms-4 my-1" href="#item-3-2">Item 3-2</a>
+              </nav>
+            </div>
+          </div>
+          <a class="nav-link" href="#item-4">Item 4</a>
+        </nav>
+      </nav>
+    </div>
+
+
+
+
+
+    <!-- Viewer Section -->
+    <div class="viewer-container" data-bs-spy="scroll" data-bs-target="#navbar-example3" class="scrollspy-example"
+      tabindex="0" id="viewer-container">
+      <!-- Content for each item -->
+      <div id="item-1">
+        <h4>Item 1</h4>
+        <p class="text"><custom-comment class="enable " data-comment="e4f3e99a5e6997412a620c2e4984effba"><span
+              class="bold text-blue">EHRA</custom-comment> <custom-comment class="enable"
+            data-comment="e1aa599572ccdb3d9acc41dd83bb6671c"><custom-comment class="enable"
+              data-comment="e72160722fe2126c7de4b380a1ea72b42"><custom-comment class="enable"
+                data-comment="eeba78861f4dbbc6172a820396cc8b66e">consensus
+              </custom-comment></custom-comment></custom-comment>on <custom-comment
+              class="enable" data-comment="e683c71bb3f8ddddc6f7c215013453005">
+            <custom-comment class="enable"
+              data-comment="edd10b370fdbf3ebec65dde2daf2668c4">prevention</custom-comment></custom-comment> and
+          <custom-comment class="enable" data-comment="eb7db03795534e4669c168d51cc4b7bd1">management</custom-comment> of
+          <custom-comment class="enable" data-comment="eb677da64f28d0dc15aafb208fad7f834">interference</custom-comment> due to
+          <custom-comment class="enable" data-comment="e988c52a401f65caf82f0294a70ce67dd">medical</custom-comment> procedures in
+          <custom-comment class="enable" data-comment="e3f9cab1699f785bc931aade32c8f7bc9">patients</custom-comment> with cardiac
+          implantable electronic devices (CIED)</span> <span class="text-blue">for the European Heart <custom-comment
+              class="enable" data-comment="ee593ed38e72bc2de1364bbef04ce3c33">Rhythm</custom-comment> Association (<custom-comment
+              class="enable" data-comment="ef38723a291ef560035f8deb8e099ab48">EHRA</custom-comment>), Heart Rhythm Society (HRS), Latin
+            America Heart Rhythm Society (LAHRS), and the <custom-comment
+              class="enable" data-comment="e6dca728d8d1048698f4cc2a361ee19fa"><custom-comment
+                class="enable" data-comment="ebf7354813dbaff6c55351747353931b1">Asian</custom-comment> </custom-comment>Pacific Heart
+            Rhythm Society (APHRS)</span></p>
+        <p class="text">&nbsp;</p>
+        <p class="text"><custom-comment class="enable" data-comment="ed9c73edd7e20c538e589651784c9feed"><span
+              class="bold text-blue">Task</custom-comment> Force Writing Committee:</span></p>
+        <p>Markus Stühlinger<span class="text-sup">1</span>, <custom-comment
+            class="enable" data-comment="e226586dee3ffa7fe32b92ab9c95b78a3"><span class="italic">Haran</span></custom-comment>
+          Burri<span class="text-sup">2</span>, Kevin Vernooy<span class="text-sup">3</span>, Rodrigue Garcia<span
+            class="text-sup">4,</span> <span class="text-sup">5</span>, Radoslaw Lenarczyk <span
+            class="text-sup">6</span>, Arian Sultan<span class="text-sup">7</span>, Michael Brunner<span
+            class="text-sup">8</span>, Avi Sabbag<span class="text-sup">9</span>, Emin Evren Özcan<span
+            class="text-sup">10</span>, Jorge Toquero Ramos <span class="text-sup">11</span>, Giuseppe Di Stolfo <span
+            class="text-sup">12</span>, Mahmoud Suleiman<span class="text-sup">13</span>, Florian Tinhofer<span
+            class="text-sup">14</span>, Julian Miguel Aristizabal<span class="text-sup">15</span>, Ivan <custom-comment
+            class="enable" data-comment="e827f10e4da642082c62f7f850c085801">Cakulev<span class="text-sup">16</span></custom-comment>,
+          Gabriel <span class="bold">Eidelman</span> <span class="text-sup">17</span>, Wee Tiong Yeo<span
+            class="text-sup">18</span>, Dennis H. Lau <span class="text-sup">19</span>, Silva K. <custom-comment
+            class="enable" data-comment="e539cb6c66dbe88dc97b58ed15cfc5923">Mulpuru<span class="text-sup">20</span></custom-comment>
+          and Jens Cosedis Nielsen <span class="text-sup">21</span></p>
+        <ol>
+          <li class="enum1">Department of Internal Medicine III, Medical University of Innsbruck, Innsbruck, Austria
+          </li>
+          <li class="enum1">Department of Cardiology, University Hospital of Geneva, Geneva, Switzerland</li>
+          <li class="enum1">Department of Cardiology, Cardiovascular Research Institute Maastricht (CARIM), Maastricht
+            University Medical Center, Maastricht, the Netherlands</li>
+          <li class="enum1">Department of Cardiology, University Hospital of Poitiers, Poitiers, France</li>
+          <li class="enum1">Department of Cardiology, Rigshospitalet, Copenhagen, Denmark</li>
+          <li class="enum1">Department of Cardiology, Congenital Heart Disease and Electrotherapy, Medical University of
+            Silesia, Silesian Center of Heart Diseases, Zabrze, Poland</li>
+          <li class="enum1">Department Of Electrophysiology, Heart Center at University Hospital Cologne, Cologne,
+            Germany</li>
+          <li class="enum1">Department of Cardiology and Medical Intensive Care, St. Josefskrankenhaus, Freiburg,
+            Germany</li>
+          <li class="enum1">The Davidai Center for Rhythm Disturbances and Pacing, Chaim Sheba Medical Center</li>
+          <li class="enum1">Heart Rhythm Management Center, Dokuz Eylul University, Izmir, Turkey</li>
+          <li class="enum1">Cardiac Arrhythmia and Electrophysiology Unit, Cardiology Department, Puerta de Hierro
+            University Hospital, Majadahonda. Madrid, Spain</li>
+          <li class="enum1">Cardiac Intensive Care and Arrhythmology Unit, Fondazione IRCCS Casa Sollievo della
+            Sofferenza, San Giovanni Rotondo, Italy</li>
+          <li class="enum1">Cardiology / Electrophysiology, Rambam Health Care Campus, Haifa, Israel</li>
+          <li class="enum1">Department of Cardiology, Klinik Ottakring, Vienna, Austria</li>
+          <li class="enum1">CES University, C Americas AUNA, San Vicente Fundación, Medellin, Colombia</li>
+          <li class="enum1">University Hospitals of Cleveland, Case Western University in Cleveland, Ohio, USA</li>
+          <li class="enum1">San Isidro’s Central Hospital, Diagnóstico Maipú, Buenos Aires Province, Argentina</li>
+          <li class="enum1">Department of Cardiology, National University Heart Centre, Singapore</li>
+          <li class="enum1">Centre for Heart Rhythm Disorders, The University of Adelaide and Royal Adelaide Hospital,
+            South Australia, Australia</li>
+          <li class="enum1">Mayo Clinic, Rochester, MN, USA 21 Department of Cardiology,</li>
+          <li class="enum1">Aarhus University Hospital, and Department of Clinical Medicine, Aarhus University, Aarhus,
+            Denmark</li>
+        </ol>
+        <p class="text"><span class="text-blue">Document Reviewers:</span></p>
+        <p>Frank Heinzel (EHRA review coordinator)<span class="text-sup">1</span>, Mukundaprabhu Prabhu<span
+            class="text-sup">2</span>, Christopher Aldo Rinaldi<span class="text-sup">3</span>, Frederic Sacher<span
+            class="text-sup">4</span>, Raul Guillen <span class="text-sup">5</span>, Jan de Pooter<span
+            class="text-sup">6</span>, Estelle Gandjbakhch<span class="text-sup">7</span>, Seth Sheldon<span
+            class="text-sup">8</span>, Günther Prenner<span class="text-sup">9</span>, Pamela K. Mason <span
+            class="text-sup">10</span>, Stephanie Fichtner<span class="text-sup">11</span>, Takashi Nitta<span
+            class="text-sup">12</span></p>
+        <p class="list">(1&amp;7). Charité University Medicine, Dept. of Cardiology, Campus Virchow-Klinikum, 13353
+          Berlin, Germany</p>
+        <p class="list">(2). Associate professor in cardiology, In charge of EP division, Kasturba medical college
+          Manipal, Manipal, Karnataks, India</p>
+        <p class="list">(3). St Thomas’ Hospital, Department of Cardiology, Westminster Bridge rd, London, United
+          Kingdom of Great Britain and Northern Ireland, IHU LIRYC</p>
+        <p class="list">(4). Bordeaux University Hospital, Univ. Bordeaux, Bordeaux, France</p>
+        <p class="list">(5). Sanatorio Adventista del Plata, Del Plata Adventist University Entre Rios Argentina</p>
+        <p class="list">(6). Professor of Cardiology, Ghent University, Deputy Head of Clinic, Heart Center UZ Gent,
+          Belgium</p>
+        <p class="list">(7). AP-HP Sorbonne Université, Hôpital Pitié-Salpêtrière, Institut de Cardiologie, ICAN, Paris,
+          France</p>
+        <p class="list">(8). The Department of Cardiovascular Medicine, University of Kansas Health System, Kansas City,
+          KS 66160, USA</p>
+        <p class="list">(9). Medical University of Graz, Graz, Austria</p>
+        <p class="list">(10). Director, Electrophysiology Laboratory, University of Virginia, Charlottesville, United
+          States of America</p>
+        <p class="list">(11). LMU Klinikum, Medizinische Klinik und Poliklinik I, Campus Großhadern, München, Germany
+        </p>
+        <p class="list">(12). Emeritus Professor, Nippon Medical School, Presiding Consultant of Cardiology, Hanyu
+          General Hospital, Saitama, Japan</p>
+        <p class="text"><span class="text-blue">EHRA Scientific Document Committee:</span></p>
+        <p>Nikolaos Dagres, Thomas <custom-comment
+            class="enable" data-comment="e6f43d781fe41db6e24b665fdfe150809">Deneke</custom-comment>, Arthur Wilde, <custom-comment
+            class="enable" data-comment="e5027384413787551657caa277889f8ca">Frank</custom-comment> R. Heinzel, Christian Meyer, Lucas
+          Boersma, Luigi di <custom-comment class="enable" data-comment="e998788cabc6d8b05f958b2b3935ac2ff">Biase</custom-comment>,
+          <custom-comment class="enable" data-comment="e18d5b2331d599ed68dd9fe23344e27ef">Elena Arbelo, Pierre Jais, and Milos
+            Taborsky</custom-comment></p>
+        <p><custom-comment class="enable" data-comment="e3ffde3c2e324dfbca3f9bfaf8c2d72d5">chapter 1</custom-comment></p>
+        <p>&nbsp;</p>
+      </div>
+      <div id="item-1-1">
+        <h5>Item 1-1</h5>
+        <p>
+          Content for Item 1-1: Phasellus ac sapien eget justo dictum
+          elementum. Ut at eros nec augue suscipit cursus non sit amet neque.
+          Nam fringilla convallis nulla, ut posuere eros cursus Sit
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. In dolorem ipsum animi. Fuga autem, repudiandae
+          explicabo facilis, id dolorem nulla qui vero quod doloremque aspernatur facere. Voluptatum unde vel ea,
+
+          ducimus! Sapiente velit, impedit rem aspernatur magni ipsum! Maxime enim dolores praesentium fugiat sapiente?
+
+          voluptatem. Ipsum, dicta.
+
+        </p>
+        <p>
+          Content for Item 1-1: Phasellus ac sapien eget justo dictum
+          elementum. Ut at eros nec augue suscipit cursus non sit amet neque.
+          Nam fringilla convallis nulla, ut posuere eros cursus sit amet.
+        </p>
+        <p>
+          Content for Item 1-1: Phasellus ac sapien eget justo dictum
+          elementum. Ut at eros nec augue suscipit cursus non sit amet neque.
+          Nam fringilla convallis nulla, ut posuere eros cursus sit amet. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Necessitatibus ex, error modi libero laudantium et? Reprehenderit eaque iusto distinctio.
+
+          temporibus, consectetur illo laboriosam possimus consequuntur fugit neque aperiam sunt at soluta veniam fugiat
+          dolorum.
+        </p>
+      </div>
+      <div id="item-1-2">
+        <h5>Item 1-2</h5>
+        <p>
+          Content for Item 1-2: Curabitur aliquet, magna eget laoreet
+          hendrerit, ligula felis consequat velit, in fermentum turpis sapien
+          non libero. Integer vel gravida nunc. Suspendisse scelerisque
+          tincid
+          labore. Officia libero quasi, obcaecati quaerat consec
+          tincidunt sem, nec accumsan nulla.
+        </p>
+        <p>
+          Content for Item 1-2: Curabitur aliquet, magna eget laoreet
+          hendrerit, ligula felis consequat velit, in fermentum turpis sapien
+          non
+          ab eos suscipit accusamus dignissimos consectetur natus! Ad numquam ex mollitia. Eveniet eligendi natus itaque
+          voluptatibus error. Unde quasi qui magnam placeat, esse ad, alias illum, odio labore nemo molestiae iure eum
+          velit.
+        </p>
+      </div>
+      <div id="item-2">
+        <h4>Item 2</h4>
+        <p>
+          Content for Item 2: Sed non felis et elit vehicula laoreet. Ut
+          feugiat neque vel quam facilisis, non fermentum velit luctus.
+          Quisque nec pharetra nulla. Integer nec lacinia est, non auctor
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+          neque omnis est facilis magni quisquam ipsam nihil esse, expedita
+          optio autem placeat doloribus accusamus cupiditate nesciunt unde
+          dolore ducimus. Quae ducimus error quis iure accusantium molestias
+          totam nam labore quasi, molestiae impedit eum laudantium placeat
+          atque vitae fugiat tenetur veritatis.
+        </p>
+      </div>
+      <div id="item-3">
+        <h4>Item 3</h4>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum,
+          facere, vitae necessitatibus, commodi nihil aperiam et eius ut
+          temporibus laborum quasi? Vel vitae voluptas obcaecati, ea ducimus
+          hic atque et
+          asperiores odio perspiciatis aut praesentium, nobis vel aliquam nihil. Amet ex similique provident ipsa
+          mollitia sequi vitae dicta ipsum magni veritatis, unde corrupti nemo aliquam facere voluptas.
+        </p>
+      </div>
+      <div id="item-3-1">
+        <h5>Item 3-1</h5>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+          animi ipsam possimus nam quisquam nostrum error hic cum odit
+          tenetur. Quis corrupti a laboriosam, ad voluptate ipsa. Laborum
+          illum, enim facere, nihil deserunt pariatur nisi, libero hic
+          doloribus illo accusamus quia aperiam quis soluta officiis itaque
+          natus laudantium! Eius, est? Dolores eos ratione doloribus
+          praesentium aspernatur impedit placeat deserunt porro!Content for
+          Item 3-1: Vivamus scelerisque orci et sem cursus, sed viverra augue
+          vehicula. Integer fringilla orci purus, sit amet auctor velit
+          venenatis non. Proin vel lectus vitae risus tempor cursus non non
+          magna.
+
+          Accusantium amet quis ipsum? Dolor consectetur incidunt doloremque dicta saepe quos cumque culpa accusantium
+          quaerat quae facere, fuga aut nisi a non earum atque minus maxime molestias? Nihil molestias reprehenderit
+          minima tempore esse vitae dolore in velit consequuntur quisquam iste inventore illo enim vel maiores, amet
+
+          sapiente?
+        </p>
+      </div>
+      <div id="item-3-2">
+        <h5>Item 3-2</h5>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam
+          saepe eaque, sunt ab dolorem nesciunt quas dicta aliquid eum
+          obcaecati, totam facilis corporis sed consectetur autem quis cumque
+          esse, architecto nostrum! Nisi voluptatum praesentium qui, tempora
+          officiis alias, veritatis at odit nemo nobis dolor nesciunt
+          laudantium! Animi veniam explicabo qui?Content for Item 3-2: In
+          euismod tincidunt lectus, eu blandit libero sodales a. Etiam in
+          lacus sit amet dolor tristique congue. Duis ac ante ut eros gravida
+          tempus et eu eros.
+        </p>
+      </div>
+      <div id="item-4">
+        <h4>Item 4</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+          earum cupiditate rerum repudiandae consequuntur aliquid placeat,
+          illo soluta et, magnam quod fugit, tenetur ut enim. Maiores sunt
+          alias assumenda laboriosam harum excepturi, debitis voluptatibus
+          nostrum similique non doloremque veritatis corrupti quisquam rerum
+          minima, asp
+        </p>
+      </div>
+      <div id="item-4-1">
+        <h5>Item 4-1</h5>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus
+          molestias ullam accusamus maiores, autem esse enim! Quae porro earum
+          ut eos officiis, labore iure voluptatum quisquam. Recusandae
+          accusamus autem aliquid itaque error architecto officia doloribus
+          ducimus molestias voluptatibus maxime a qui pariatur porro facere
+          nobis laudantium dolor doloremque, iusto dicta? Content for Item
+          4-1: Vivamus cursus mi eget metus placerat condimentum. Integer
+          dapibus felis felis, vitae tincidunt nulla tempor eget. Donec
+          tristique vehicula orci, in egestas libero facilisis vitae.
+        </p>
+      </div>
+      <div id="item-4-2">
+        <h5>Item 4-2</h5>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Praesentium tenetur molestias labore fugiat deserunt quo inventore
+          iste, quos dolores culpa, non quod quisquam facere. Doloribus
+          facilis consequuntur dolor repellat, aliquid maiores animi
+          perspiciatis harum ut nemo beatae amet voluptatem maxime laboriosam
+          fugit nostrum magni molestias! Tempore ipsum repellat nam
+
+        </p>
+      </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div class=" d-none d-lg-block">
+      <div id="comments-container"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Comments Offcanvas -->
+    <div class="offcanvas offcanvas-end d-lg-none" id="comments-offcanvas" tabindex="-1"
+      aria-labelledby="comments-offcanvas-label">
+      <div class="offcanvas-header">
+        <h5 id="comments-offcanvas-label">Comments</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="comments-container" id="comments-container">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- TOC Offcanvas -->
+    <div class="offcanvas offcanvas-start d-lg-none" id="toc-offcanvas" tabindex="-1"
+      aria-labelledby="toc-offcanvas-label">
+      <div class="offcanvas-header">
+        <h5 id="toc-offcanvas-label">Table of Contents</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4">
+          <!-- Your TOC content here -->
+
+          <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4">
+            <nav class="nav nav-pills flex-column">
+              <div class="nav-item">
+                <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#item-1-collapse"
+                  role="button" aria-expanded="false" aria-controls="item-1-collapse">
+                  <i class="me-2 fa fa-angle-right"></i>
+                  <span>Item 1</span>
+                </a>
+                <div class="collapse" id="item-1-collapse">
+                  <nav class="nav nav-pills flex-column">
+                    <a class="nav-link ms-4 my-1" href="#item-1-1">Item 1-1</a>
+                    <a class="nav-link ms-4 my-1" href="#item-1-2">Item 1-2</a>
+                  </nav>
+                </div>
+              </div>
+              <a class="nav-link" href="#item-2">Item 2</a>
+              <div class="nav-item">
+                <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#item-3-collapse"
+                  role="button" aria-expanded="false" aria-controls="item-3-collapse">
+                  <i class="me-2 fa fa-angle-right"></i>
+                  <span>Item 3</span>
+                </a>
+                <div class="collapse" id="item-3-collapse">
+                  <nav class="nav nav-pills flex-column">
+                    <a class="nav-link ms-4 my-1" href="#item-3-1">Item 3-1</a>
+                    <a class="nav-link ms-4 my-1" href="#item-3-2">Item 3-2</a>
+                  </nav>
+                </div>
+              </div>
+              <a class="nav-link" href="#item-4">Item 4</a>
+            </nav>
+          </nav>
+      </div>
+      </nav>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="comments.js"></script>
+</body>
+
+</html>
