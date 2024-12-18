@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   // Fetch comments from the given URL
   function fetchComments(url) {
     return fetch(url)
@@ -12,37 +11,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create HTML for a single comment
   function createCommentHTML(comment) {
-    // Format the timestamp
     const formattedTime = new Date(comment.created_at).toLocaleString();
-
     return `
-      <div class="comment-item">
+      <div class="comment-item" data-comment-id="${comment.id}">
         <div class="avatar-placeholder">
-          <img src="${comment.user.profile_picture}" alt="${comment.user.name}'s avatar" class="avatar">
+          <img src="./user.png" alt="${comment.user.name}'s avatar" class="avatar">
         </div>
         <div class="comment-content">
-          <div>
+          <div class="comment-header">
             <span class="comment-user">${comment.user.name}</span>
-            <div class="comment-time">${formattedTime}</div> <!-- Time below username -->
+            <div class="comment-time">${formattedTime}</div>
           </div>
-          <div class="comment-text">${comment.content}</div>
+          <div class="comment-text truncated" data-collapsed="true">${comment.content}</div>
         </div>
       </div>
     `;
   }
 
-  // Create HTML for a thread card
-  function createThreadHTML(threadComments) {
+  // Create HTML for a thread card with comments
+  function createThreadHTML(threadComments, threadId) {
+    const initialComments = threadComments.slice(0, 2); // Show only the first two comments initially
     let threadHTML = `
-      <div class="comment-container">
+      <div class="comment-container" data-thread-id="${threadId}" style="cursor: pointer;" data-collapsed="true">
         <div class="comment-body">
     `;
-    
-    threadComments.forEach(comment => {
+
+    // Render initial comments
+    initialComments.forEach(comment => {
       threadHTML += createCommentHTML(comment);
     });
 
-    threadHTML += `</div></div>`; // Close comment body and container
+    // Add a hidden section for remaining comments
+    if (threadComments.length > 2) {
+      threadHTML += `<div class="hidden-comments" style="display: none;">`;
+      threadComments.slice(2).forEach(comment => {
+        threadHTML += createCommentHTML(comment);
+      });
+      threadHTML += `</div>`;
+    }
+
+    threadHTML += `</div></div>`; // Close the container
     return threadHTML;
   }
 
@@ -65,17 +73,143 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(comments => {
         const groupedComments = groupCommentsByThreadId(comments);
 
-        // Render each thread's comments in a separate card
         for (let threadId in groupedComments) {
           const threadComments = groupedComments[threadId];
-          commentsContainer.innerHTML += createThreadHTML(threadComments);
+          commentsContainer.innerHTML += createThreadHTML(threadComments, threadId);
         }
+
+        // Add event listeners for expanding comments
+        addClickEventToCustomComment();
       })
       .catch(error => {
         commentsContainer.innerHTML = '<p>Failed to load comments.</p>';
       });
   }
 
-  // Initialize rendering comments
+  // Add styles to truncate comments with ellipses
+  function addStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+      .comment-text {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Limit to 3 lines */
+        -webkit-box-orient: vertical;
+      }
+
+      .comment-text.truncated[data-collapsed="true"] {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      .comment-body[data-collapsed="true"] {
+        max-height: 200px;
+        overflow: hidden;
+      }
+
+      .comment-container {
+        border: 1px solid #ddd;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .comment-text:not(.truncated) {
+        -webkit-line-clamp: unset; /* Remove line restriction */
+      }
+
+      .hidden-comments {
+        display: none; /* Hidden by default */
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Function to handle expansion and collapsing
+  function toggleCommentExpansion(container, expand) {
+    const hiddenComments = container.querySelector('.hidden-comments');
+    if (expand) {
+      container.setAttribute('data-collapsed', 'false');
+      if (hiddenComments) hiddenComments.style.display = 'block';
+      container.querySelectorAll('.comment-text').forEach(text => text.classList.remove('truncated'));
+    } else {
+      container.setAttribute('data-collapsed', 'true');
+      if (hiddenComments) hiddenComments.style.display = 'none';
+      container.querySelectorAll('.comment-text').forEach(text => text.classList.add('truncated'));
+    }
+  }
+
+  // Function to add event listeners to all <custom-comment> and <comment-container> elements
+  function addClickEventToCustomComment() {
+    const customComments = document.querySelectorAll('custom-comment.enable');
+    const commentThreads = document.querySelectorAll('.comment-container[data-thread-id]');
+
+    const clearActiveClasses = () => {
+      customComments.forEach(el => el.classList.remove('active'));
+      commentThreads.forEach(el => el.classList.remove('active'));
+    };
+
+    const clearExpandedComments = () => {
+      document.querySelectorAll('.comment-container[data-collapsed="false"]').forEach(container => {
+        toggleCommentExpansion(container, false);
+      });
+    };
+
+    const activateElement = (clickedElement, relatedSelector, relatedAttribute) => {
+      clearActiveClasses();
+
+      const relatedId = clickedElement.getAttribute(relatedAttribute);
+      const relatedElement = document.querySelector(relatedSelector.replace('{id}', relatedId));
+
+      if (relatedElement) {
+        clickedElement.classList.add('active');
+        relatedElement.classList.add('active');
+
+        // Scroll the related element into view
+        relatedElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'nearest'
+        });
+
+        // Expand the related comment container and collapse others
+        clearExpandedComments();
+        toggleCommentExpansion(relatedElement, true);
+      }
+    };
+
+    customComments.forEach(element => {
+      element.addEventListener('click', (event) => {
+        event.stopPropagation();
+        activateElement(element, '[data-thread-id="{id}"]', 'data-comment');
+      });
+    });
+
+    commentThreads.forEach(element => {
+      element.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        const isCollapsed = element.getAttribute('data-collapsed') === 'true';
+        clearExpandedComments(); // Collapse any other open threads
+        if (isCollapsed) {
+          toggleCommentExpansion(element, true);
+        } else {
+          toggleCommentExpansion(element, false);
+        }
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.active')) {
+        clearActiveClasses();
+        clearExpandedComments();
+      }
+    });
+  }
+
+  // Initialize rendering comments and styles
+  addStyles();
   renderComments('comments-container', './comments.json');
 });
