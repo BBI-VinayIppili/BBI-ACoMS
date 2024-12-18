@@ -123,6 +123,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .hidden-comments {
         display: none; /* Hidden by default */
       }
+
+      .active {
+        background-color: #f0f8ff; /* Highlight active elements */
+        border: 2px solid #007bff;
+      }
     `;
     document.head.appendChild(style);
   }
@@ -140,74 +145,89 @@ document.addEventListener("DOMContentLoaded", function () {
       container.querySelectorAll('.comment-text').forEach(text => text.classList.add('truncated'));
     }
   }
+  
+ // Function to add event listeners to all <custom-comment> and <comment-container> elements
+function addClickEventToCustomComment() {
+  const customComments = document.querySelectorAll('custom-comment.enable');
+  const commentThreads = document.querySelectorAll('.comment-container[data-thread-id]');
 
-  // Function to add event listeners to all <custom-comment> and <comment-container> elements
-  function addClickEventToCustomComment() {
-    const customComments = document.querySelectorAll('custom-comment.enable');
-    const commentThreads = document.querySelectorAll('.comment-container[data-thread-id]');
+  const clearActiveClasses = () => {
+    customComments.forEach(el => el.classList.remove('active'));
+    commentThreads.forEach(el => el.classList.remove('active'));
+  };
 
-    const clearActiveClasses = () => {
-      customComments.forEach(el => el.classList.remove('active'));
-      commentThreads.forEach(el => el.classList.remove('active'));
-    };
+  const clearExpandedComments = () => {
+    document.querySelectorAll('.comment-container[data-collapsed="false"]').forEach(container => {
+      toggleCommentExpansion(container, false);
+    });
+  };
 
-    const clearExpandedComments = () => {
-      document.querySelectorAll('.comment-container[data-collapsed="false"]').forEach(container => {
-        toggleCommentExpansion(container, false);
+  const activateElement = (clickedElement, relatedSelector, relatedAttribute, relatedClassName) => {
+    clearActiveClasses();
+
+    const relatedId = clickedElement.getAttribute(relatedAttribute);
+    const relatedElement = document.querySelector(relatedSelector.replace('{id}', relatedId));
+
+    if (relatedElement) {
+      clickedElement.classList.add('active');
+      relatedElement.classList.add('active');
+
+      // Scroll the related element into view
+      relatedElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
       });
-    };
 
-    const activateElement = (clickedElement, relatedSelector, relatedAttribute) => {
-      clearActiveClasses();
-
-      const relatedId = clickedElement.getAttribute(relatedAttribute);
-      const relatedElement = document.querySelector(relatedSelector.replace('{id}', relatedId));
-
-      if (relatedElement) {
-        clickedElement.classList.add('active');
-        relatedElement.classList.add('active');
-
-        // Scroll the related element into view
-        relatedElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'nearest'
-        });
-
-        // Expand the related comment container and collapse others
+      // Expand the related comment container and collapse others if it applies
+      if (relatedClassName === 'comment-container') {
         clearExpandedComments();
         toggleCommentExpansion(relatedElement, true);
       }
-    };
+    }
+  };
 
-    customComments.forEach(element => {
-      element.addEventListener('click', (event) => {
-        event.stopPropagation();
-        activateElement(element, '[data-thread-id="{id}"]', 'data-comment');
-      });
+  customComments.forEach(element => {
+    element.addEventListener('click', (event) => {
+      event.stopPropagation();
+      activateElement(element, '[data-thread-id="{id}"]', 'data-comment', 'comment-container');
     });
+  });
 
-    commentThreads.forEach(element => {
-      element.addEventListener('click', (event) => {
-        event.stopPropagation();
+  commentThreads.forEach(element => {
+    element.addEventListener('click', (event) => {
+      event.stopPropagation();
 
-        const isCollapsed = element.getAttribute('data-collapsed') === 'true';
-        clearExpandedComments(); // Collapse any other open threads
-        if (isCollapsed) {
-          toggleCommentExpansion(element, true);
-        } else {
-          toggleCommentExpansion(element, false);
-        }
-      });
-    });
+      const isCollapsed = element.getAttribute('data-collapsed') === 'true';
 
-    document.addEventListener('click', (event) => {
-      if (!event.target.closest('.active')) {
-        clearActiveClasses();
-        clearExpandedComments();
+      // Ensure the clicked thread becomes active
+      clearActiveClasses();
+      element.classList.add('active');
+
+      // Find and activate the corresponding word
+      const threadId = element.getAttribute('data-thread-id');
+      const relatedWord = document.querySelector(`custom-comment[data-comment="${threadId}"]`);
+      if (relatedWord) {
+        relatedWord.classList.add('active');
+      }
+
+      clearExpandedComments(); // Collapse any other open threads
+      if (isCollapsed) {
+        toggleCommentExpansion(element, true);
+      } else {
+        toggleCommentExpansion(element, false);
       }
     });
-  }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.comment-container, .custom-comment')) {
+      clearActiveClasses();
+      clearExpandedComments();
+    }
+  });
+}
+
 
   // Initialize rendering comments and styles
   addStyles();
