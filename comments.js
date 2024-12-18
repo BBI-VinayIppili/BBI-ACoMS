@@ -1,3 +1,119 @@
+// Function to handle expansion and collapsing
+function toggleCommentExpansion(container, expand) {
+  const hiddenComments = container.querySelector('.hidden-comments');
+  if (expand) {
+    container.setAttribute('data-collapsed', 'false');
+    if (hiddenComments) hiddenComments.style.display = 'block';
+    container.querySelectorAll('.comment-text').forEach(text => text.classList.remove('truncated'));
+  } else {
+    container.setAttribute('data-collapsed', 'true');
+    if (hiddenComments) hiddenComments.style.display = 'none';
+    container.querySelectorAll('.comment-text').forEach(text => text.classList.add('truncated'));
+  }
+}
+
+function clearExpandedComments() {
+  document.querySelectorAll('.comment-container[data-collapsed="false"]').forEach(container => {
+    toggleCommentExpansion(container, false);
+  });
+}
+ /////////////////
+
+
+
+ // Function to clear active classes from elements
+function clearActiveClasses() {
+  const customComments = document.querySelectorAll('custom-comment.enable');
+  const commentThreads = document.querySelectorAll('.comment-container[data-thread-id]');
+
+  customComments.forEach(el => el.classList.remove('active'));
+  commentThreads.forEach(el => el.classList.remove('active'));
+}
+
+// Function to activate elements (add active class)
+function activateElement(clickedElement, relatedSelector, relatedAttribute, relatedClassName) {
+  clearActiveClasses();
+
+  const relatedId = clickedElement.getAttribute(relatedAttribute);
+  const relatedElement = document.querySelector(relatedSelector.replace('{id}', relatedId));
+
+  if (relatedElement) {
+    clickedElement.classList.add('active');
+    relatedElement.classList.add('active');
+
+    // Scroll the related element into view
+    relatedElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'nearest'
+    });
+
+    // Expand the related comment container if it's the correct class
+    if (relatedClassName === 'comment-container') {
+      clearExpandedComments();
+      toggleCommentExpansion(relatedElement, true);
+    }
+  }
+}
+
+
+
+
+/////////////////////
+
+
+// Function to add event listeners to all <custom-comment> and <comment-container> elements
+function addClickEventToCustomComment() {
+  const customComments = document.querySelectorAll('custom-comment.enable');
+  const commentThreads = document.querySelectorAll('.comment-container[data-thread-id]');
+
+  // Handle clicks on <custom-comment> elements
+  customComments.forEach(element => {
+    element.addEventListener('click', (event) => {
+      event.stopPropagation();
+      activateElement(element, '[data-thread-id="{id}"]', 'data-comment', 'comment-container');
+    });
+  });
+
+  // Handle clicks on <comment-container> elements
+  commentThreads.forEach(element => {
+    element.addEventListener('click', (event) => {
+      event.stopPropagation();
+
+      const isCollapsed = element.getAttribute('data-collapsed') === 'true';
+
+      // Ensure the clicked thread becomes active
+      clearActiveClasses();
+      element.classList.add('active');
+
+      // Find and activate the corresponding word (custom-comment)
+      const threadId = element.getAttribute('data-thread-id');
+      const relatedWord = document.querySelector(`custom-comment[data-comment="${threadId}"]`);
+      if (relatedWord) {
+        relatedWord.classList.add('active');
+      }
+
+      clearExpandedComments(); // Collapse any other open threads
+      if (isCollapsed) {
+        toggleCommentExpansion(element, true);
+      } else {
+        toggleCommentExpansion(element, false);
+      }
+    });
+  });
+
+  // Close expanded comments when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.comment-container, .custom-comment')) {
+      clearActiveClasses();
+      clearExpandedComments();
+    }
+  });
+}
+
+
+////////////////
+
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch comments from the given URL
   function fetchComments(url) {
@@ -131,103 +247,6 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     document.head.appendChild(style);
   }
-
-  // Function to handle expansion and collapsing
-  function toggleCommentExpansion(container, expand) {
-    const hiddenComments = container.querySelector('.hidden-comments');
-    if (expand) {
-      container.setAttribute('data-collapsed', 'false');
-      if (hiddenComments) hiddenComments.style.display = 'block';
-      container.querySelectorAll('.comment-text').forEach(text => text.classList.remove('truncated'));
-    } else {
-      container.setAttribute('data-collapsed', 'true');
-      if (hiddenComments) hiddenComments.style.display = 'none';
-      container.querySelectorAll('.comment-text').forEach(text => text.classList.add('truncated'));
-    }
-  }
-  
- // Function to add event listeners to all <custom-comment> and <comment-container> elements
-function addClickEventToCustomComment() {
-  const customComments = document.querySelectorAll('custom-comment.enable');
-  const commentThreads = document.querySelectorAll('.comment-container[data-thread-id]');
-
-  const clearActiveClasses = () => {
-    customComments.forEach(el => el.classList.remove('active'));
-    commentThreads.forEach(el => el.classList.remove('active'));
-  };
-
-  const clearExpandedComments = () => {
-    document.querySelectorAll('.comment-container[data-collapsed="false"]').forEach(container => {
-      toggleCommentExpansion(container, false);
-    });
-  };
-
-  const activateElement = (clickedElement, relatedSelector, relatedAttribute, relatedClassName) => {
-    clearActiveClasses();
-
-    const relatedId = clickedElement.getAttribute(relatedAttribute);
-    const relatedElement = document.querySelector(relatedSelector.replace('{id}', relatedId));
-
-    if (relatedElement) {
-      clickedElement.classList.add('active');
-      relatedElement.classList.add('active');
-
-      // Scroll the related element into view
-      relatedElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'nearest'
-      });
-
-      // Expand the related comment container and collapse others if it applies
-      if (relatedClassName === 'comment-container') {
-        clearExpandedComments();
-        toggleCommentExpansion(relatedElement, true);
-      }
-    }
-  };
-
-  customComments.forEach(element => {
-    element.addEventListener('click', (event) => {
-      event.stopPropagation();
-      activateElement(element, '[data-thread-id="{id}"]', 'data-comment', 'comment-container');
-    });
-  });
-
-  commentThreads.forEach(element => {
-    element.addEventListener('click', (event) => {
-      event.stopPropagation();
-
-      const isCollapsed = element.getAttribute('data-collapsed') === 'true';
-
-      // Ensure the clicked thread becomes active
-      clearActiveClasses();
-      element.classList.add('active');
-
-      // Find and activate the corresponding word
-      const threadId = element.getAttribute('data-thread-id');
-      const relatedWord = document.querySelector(`custom-comment[data-comment="${threadId}"]`);
-      if (relatedWord) {
-        relatedWord.classList.add('active');
-      }
-
-      clearExpandedComments(); // Collapse any other open threads
-      if (isCollapsed) {
-        toggleCommentExpansion(element, true);
-      } else {
-        toggleCommentExpansion(element, false);
-      }
-    });
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!event.target.closest('.comment-container, .custom-comment')) {
-      clearActiveClasses();
-      clearExpandedComments();
-    }
-  });
-}
-
 
   // Initialize rendering comments and styles
   addStyles();
